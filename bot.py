@@ -8,38 +8,34 @@ from discord.ext import commands
 
 TOKEN = os.environ['DISCORD_TOKEN'] 
 GUILD = '708547549824548945'
-client = discord.Client()
 
 bot = commands.Bot(command_prefix='!')
-
-
 
 @bot.event
 async def on_ready():
     print(f'{bot.user.name} has connected to Discord!')
 
-@client.event
+@bot.event
 async def on_member_join(member):
-   channel = client.get_channel(708547549824548948) 
-   await channel.send(f"Welcome to the Trap, be real {member}")
+    channel = bot.get_channel(708547549824548948) 
+    await channel.send(f"Welcome to the Trap, be real {member}")
 
+@bot.command('wishlist')
+async def on_message(msg):
+    channel = client .get_channel(752187131522187325)
+    
 
 
 @bot.command('testlol')
 async def on_message(msg):
-    print(msg)
     if msg.author == client.user:
         return
     await msg.channel.send("This slaps bruh")
 
+@bot.command('boop')
+async def boop(ctx, target):
+    await ctx.channel.send(f'{ctx.author.mention} boops {target}')
 
-# @bot.command('boop') asynce testlol(ctx, target) ctx.send(f'{ctx.author.name} boops {target}') print('user: {ctx.author.name} used boop on {target} in {ctx.channel.name}')
 
-# @client.event
-# async def on_member_join(member):
-    # channelName = 
-client.run(TOKEN)
 bot.run(TOKEN)
-# write some class here 
 
-#run it down here 
