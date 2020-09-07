@@ -21,10 +21,10 @@ async def on_member_join(member):
     await channel.send(f"Welcome to the Trap, be real {member}")
 
 @bot.command('wishlist')
-async def on_message(msg):
-    channel = client .get_channel(752187131522187325)
+async def on_message(ctx, link):
+    channel = bot.get_channel(752187131522187325) 
+    await channel.send(f"{ctx.author.mention} wants {link}")
     
-
 
 @bot.command('testlol')
 async def on_message(msg):
